@@ -8,5 +8,5 @@
 - npm run start
 ## Preview
 
-![Resim](./src/public/HomePage.png)
-![Resim](./src/public/DetailPage.png)
+![Resim](/public/HomePage.png)
+![Resim](/public/DetailPage.png)
