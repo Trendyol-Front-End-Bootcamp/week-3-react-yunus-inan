@@ -1,38 +1,28 @@
 
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 
-import { useEffect, useState } from "react";
 import Navbar from "./Components/Navbar";
-import Search from "./Components/Search";
-import CardSection from "./Components/CardSection";
 import './Style/index.scss';
-import {getCharacter} from './Utils/Fetch'
+import Home from "./Pages/Home";
+import CharacterDetail from "./Pages/CharacterDetail";
+
 
 
 
 function App() {
-  const [characterList,setCharacterList] = useState([]);
-  
-  async function getChar() {
-    const data = await getCharacter();
-    setCharacterList(data);
-  }
-   async function getSearchResults(data) {
-    console.log(data);
-    setCharacterList(data);
-  }
 
-  
-  useEffect(() => {
-    getChar();
-  }, []);
-  
-    return (
+
+  return (
+    <Router>
       <div className="App">
         <Navbar />
-        <Search getSearchResults={getSearchResults} />
-        <CardSection characterList={characterList}/>
+        <Switch>
+          <Route exact path="/" component={Home} />
+          <Route exact path="/detail/:id" component={CharacterDetail} />
+        </Switch>
       </div>
-    );
+    </Router >
+  );
 }
 
 export default App;
