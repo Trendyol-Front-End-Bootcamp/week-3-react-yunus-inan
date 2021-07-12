@@ -35,7 +35,7 @@ const CharacterDetail = () => {
 
     return (
         <div className="selected-character">
-            {id}
+
             <div className="back-link" >
                 <Link to="/" >
                     <IoChevronBackCircle size={50} className="icon" />
