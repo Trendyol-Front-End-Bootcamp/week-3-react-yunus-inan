@@ -1,21 +1,21 @@
 import React from 'react';
 import { useState } from "react";
-import {getSearchCharacter} from '../Utils/Fetch'
-const Search = ({getSearchResults}) => {
+import { getSearchCharacter } from '../Utils/Fetch'
+const Search = ({ getSearchResults }) => {
 
   const [status, setStatus] = useState("alive");
   const [gender, setGender] = useState("female");
 
   async function handleSubmit(e) {
     e.preventDefault();
-    const data = await getSearchCharacter(status,gender);
+    const data = await getSearchCharacter(status, gender);
     getSearchResults(data);
 
   };
 
   return (
     <form className="search-form">
-      
+
       <div className="input-group">
         <label>Status</label>
         <select onChange={(e) => setStatus(e.target.value)} defaultValue="alive">
@@ -34,7 +34,7 @@ const Search = ({getSearchResults}) => {
         </select>
       </div>
       <div className="input-group btn">
-        <label>Search Btn</label>
+
         <button className="search-btn" onClick={handleSubmit}>Search</button>
       </div>
     </form>

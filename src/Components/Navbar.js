@@ -3,7 +3,8 @@ import React from 'react'
 const Navbar = () => {
     return (
         <div className="navbar">
-            NAVBAR
+            
+            <h1>Rick And Morty Challange</h1>
         </div>
     )
 }
