@@ -3,6 +3,7 @@ import { Link } from "react-router-dom";
 export default function CharacterCard({ chars }) {
 
   return (
+    // internal information of card components
     <div className="character-card">
       <div className="img">
         <img src={chars.image} alt="Character" />

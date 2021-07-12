@@ -3,9 +3,11 @@ import { useState } from "react";
 import { getSearchCharacter } from '../Utils/Fetch'
 const Search = ({ getSearchResults }) => {
 
+  //Filter State Elements
   const [status, setStatus] = useState("alive");
   const [gender, setGender] = useState("female");
 
+  // We fetch according to the data returned from selectable inputs
   async function handleSubmit(e) {
     e.preventDefault();
     const data = await getSearchCharacter(status, gender);

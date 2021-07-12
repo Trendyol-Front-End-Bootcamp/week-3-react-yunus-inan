@@ -1,8 +1,9 @@
 import axios from "axios";
 
+const currentURL = "https://rickandmortyapi.com/api/character/";
 
 export const getCharacter = async () => {
-    const data = axios.get("https://rickandmortyapi.com/api/character/")
+    const data = axios.get(`https://rickandmortyapi.com/api/character/`)
         .then((response) => {
             return response.data.results;
         })

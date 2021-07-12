@@ -21,17 +21,21 @@ const CharacterDetail = () => {
 
     let count = 0;
 
-
+    // Information of the selected character
     async function getSelectChar(id) {
         const data = await getSelectedCharacter(id);
         setCharacter(data);
     }
     useEffect(() => {
+
         getSelectChar(id);
+
+
     }, [count])
 
     return (
         <div className="selected-character">
+            {id}
             <div className="back-link" >
                 <Link to="/" >
                     <IoChevronBackCircle size={50} className="icon" />
@@ -60,11 +64,14 @@ const CharacterDetail = () => {
                         </li>
                         <li>
 
-                            <strong>Episodes:</strong> {character.episode.slice(0, 5).map((element, index) => {
+                            <strong>Episodes:</strong>
+                            <ul className="episode-container">{character.episode.slice(0, 5).map((element, index) => {
                                 return (
-                                    <p>{index + 1}-{element.substring(32, 42)}</p>
+                                    // I get the point I need from episode info with substr
+                                    <li key={index} className="episodes-list">{element.substring(40, 42).replace("/", "-")}</li>
                                 )
                             })}
+                            </ul>
 
                         </li>
                     </ul>
