@@ -20,7 +20,8 @@ const Search = ({ getSearchResults }) => {
 
       <div className="input-group">
         <label>Status</label>
-        <select onChange={(e) => setStatus(e.target.value)} defaultValue="alive">
+        <select onChange={(e) => setStatus(e.target.value)} defaultValue={status}>
+          <option value="">None</option>
           <option value="alive">Alive</option>
           <option value="dead">Dead</option>
           <option value="unknown">Unknown</option>
@@ -28,7 +29,8 @@ const Search = ({ getSearchResults }) => {
       </div>
       <div className="input-group">
         <label>Gender</label>
-        <select onChange={(e) => setGender(e.target.value)} defaultValue="female">
+        <select onChange={(e) => setGender(e.target.value)} defaultValue={gender}>
+          <option value="">None</option>
           <option value="female">Female</option>
           <option value="male">Male</option>
           <option value="genderless">Genderless</option>
