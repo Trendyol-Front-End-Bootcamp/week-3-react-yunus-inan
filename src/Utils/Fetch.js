@@ -1,6 +1,6 @@
 import axios from "axios";
 
-const currentURL = "https://rickandmortyapi.com/api/character/";
+// currentURL = "https://rickandmortyapi.com/api/character/";
 
 export const getCharacter = async () => {
     const data = axios.get(`https://rickandmortyapi.com/api/character/`)

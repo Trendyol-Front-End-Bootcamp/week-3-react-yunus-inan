@@ -19,19 +19,18 @@ const CharacterDetail = () => {
         episode: [],
     });
 
-    let count = 0;
 
-    // Information of the selected character
-    async function getSelectChar(id) {
-        const data = await getSelectedCharacter(id);
-        setCharacter(data);
-    }
+
+
     useEffect(() => {
-
+        // Information of the selected character
+        async function getSelectChar(id) {
+            const data = await getSelectedCharacter(id);
+            console.log(data);
+            setCharacter(data);
+        };
         getSelectChar(id);
-
-
-    }, [count])
+    }, [id])
 
     return (
         <div className="selected-character">
