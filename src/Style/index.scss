@@ -54,14 +54,18 @@ body {
         }
       } 
       button {
+        height:50px;
+        width:200px;
         background-color: $navbarColor;
-        color: white;
-        font-size: 1.2rem;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
+        border:1px solid white;
+        border-radius:10px;
+        color:White;
+        font-size:15px;
+        box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
+        
         &:hover{
           color: $textColor;
+          border:1px solid $textColor;
           transition: 0.5s ease-in-out all;
         }
       }
@@ -77,6 +81,7 @@ body {
     align-items: center;
     padding: 2rem;
     .character-card {
+      width: 20%;
       margin-right: 2%;
       margin-bottom: 2%;
       padding: 20px;
@@ -84,13 +89,23 @@ body {
       flex-direction: column;
       align-items: center;
       border: 1px solid transparent;
+      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+      border-radius: 20px;
+      transition: 0.3s ease-in-out all;
+      img{
+        border-radius: 50%;
+        box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
+        
+      }
       &:hover{
+        
         border: 1px solid $navbarColor;
         border-radius: 20px;
         box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
       }
       .info{
        margin-bottom: 10%;
+       margin-top: 10%;
       }
       .character-button{
         background-color: $navbarColor;
@@ -142,7 +157,7 @@ body {
       .img-container{
         
         margin-right:10%;
-        overflow: hidden;
+        overflow:hidden;
         border-radius: 12px;
         box-shadow: 0px 2px 15px rgba(0, 0, 0, 0.3);
        
@@ -150,9 +165,8 @@ body {
         img{
           display: block;
           width: 100%;
-          height: 400px;
-          background-size: cover;
-          object-fit: cover;
+          height: 100%;
+          
           transition: transform 0.5s;
           &:hover{
             transform: scale(1.2);
