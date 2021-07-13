@@ -37,9 +37,9 @@ const Search = ({ getSearchResults }) => {
           <option value="unknown">Unknown</option>
         </select>
       </div>
-      <div className="input-group btn">
+      <div className="input-group">
 
-        <button className="search-btn" onClick={handleSubmit}>Search</button>
+        <button className="search" onClick={handleSubmit}>Search</button>
       </div>
     </form>
   )
