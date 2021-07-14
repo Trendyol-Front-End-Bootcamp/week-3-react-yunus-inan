@@ -3,7 +3,6 @@ import { useState } from "react";
 import { getSearchCharacter } from '../Utils/Fetch'
 const Search = ({ getSearchResults, page, setPage }) => {
 
-  //Buradaki pagination için yazdığım kodları okumamanızı öneriyorum. Sağlığa zararlı olabilir :D 
 
 
   //Filter State Elements
