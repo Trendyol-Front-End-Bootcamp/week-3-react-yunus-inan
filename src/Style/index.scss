@@ -29,6 +29,32 @@ body {
   }
   .home-page{
     width: 100%;
+    display: flex;
+    flex-direction: column;
+    .pagination-buttons{
+      align-self: flex-end;
+      padding-right: 10%;
+        button{
+          height: 50px;
+          width: 50px;
+          margin-left: 10px;
+          background-color: $navbarColor;
+          color: white;
+          font-size: 1.3rem;
+          border: 1px solid white;
+          
+          &:focus,&:visited{
+           box-shadow: 0px 0px 0px 2px rgba(34,162,189,1);
+           background-color: $textColor;
+          }
+          &:hover{
+            background-color: $textColor;
+          }
+          
+        }
+      }
+     
+    }
     .search-form{
       padding: 20px;
       margin: 0 10% 30px 10%;
@@ -212,5 +238,5 @@ body {
     }
   }
 }
-}
+
 
