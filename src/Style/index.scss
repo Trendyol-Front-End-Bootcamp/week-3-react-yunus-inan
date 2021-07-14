@@ -31,31 +31,33 @@ body {
     width: 100%;
     display: flex;
     flex-direction: column;
-    .pagination-buttons{
-      align-self: flex-end;
-      padding-right: 10%;
-        button{
-          height: 50px;
-          width: 50px;
-          margin-left: 10px;
-          background-color: $navbarColor;
-          color: white;
-          font-size: 1.3rem;
-          border: 1px solid white;
-          
-          &:focus,&:visited{
-           box-shadow: 0px 0px 0px 2px rgba(34,162,189,1);
-           background-color: $textColor;
-          }
-          &:hover{
+    // Pagination Buttons Style Start 
+      .pagination-buttons{
+        align-self: flex-end;
+        padding-right: 10%;
+          button{
+            height: 50px;
+            width: 50px;
+            margin-left: 10px;
+            background-color: $navbarColor;
+            color: white;
+            font-size: 1.3rem;
+            border: 1px solid white;
+            
+            &:focus,&:visited{
+            box-shadow: 0px 0px 0px 2px rgba(34,162,189,1);
             background-color: $textColor;
+            }
+            &:hover{
+              background-color: $textColor;
+            }
+            
           }
-          
         }
-      }
-     
-    }
-    .search-form{
+      // Pagination Buttons Style End
+
+      // Home Page Filter Section Start
+      .search-form{
       padding: 20px;
       margin: 0 10% 30px 10%;
       border-radius: 6px;
@@ -64,93 +66,100 @@ body {
       justify-content: flex-start;
       align-items: center;
       gap: 20px;
-      .input-group {
-        display: flex;
-        flex-direction: column;
-        width: 20%;
-         input,select,button {
-            width: 100%;
-            height: 40px;
-            border-radius: 6px;
-            outline: none;
+        .input-group {
+          display: flex;
+          flex-direction: column;
+          width: 20%;
+          input,select,button {
+              width: 100%;
+              height: 40px;
+              border-radius: 6px;
+              outline: none;
+            }
+          label {
+            font-size: 13px;
+            margin-bottom: 6px;
           }
-        label {
-          font-size: 13px;
-          margin-bottom: 6px;
-        }
-      } 
-      button {
-        height:50px;
-        width:200px;
-        background-color: $navbarColor;
-        border:1px solid white;
-        border-radius:10px;
-        color:White;
-        font-size:15px;
-        box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
-        
-        &:hover{
-          color: $textColor;
-          border:1px solid $textColor;
-          transition: 0.5s ease-in-out all;
+        } 
+        button {
+          height:50px;
+          width:200px;
+          background-color: $navbarColor;
+          border:1px solid white;
+          border-radius:10px;
+          color:White;
+          font-size:15px;
+          box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
+          
+          &:hover{
+            color: $textColor;
+            border:1px solid $textColor;
+            transition: 0.5s ease-in-out all;
+          }
         }
       }
-    }
-  }
-  // Home Page Card List Section
-  .card-section {
-    margin-top: 1rem;
-    flex-wrap: wrap;
-    display: flex;
-    width: 100%;
-    justify-content: center;
-    align-items: center;
-    padding: 2rem;
-    .character-card {
-      width: 20%;
-      margin-right: 2%;
-      margin-bottom: 2%;
-      padding: 20px;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      border: 1px solid transparent;
-      box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-      border-radius: 20px;
-      transition: 0.3s ease-in-out all;
-      img{
-        border-radius: 50%;
-        box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
-        
-      }
-      &:hover{
-        
-        border: 1px solid $navbarColor;
-        border-radius: 20px;
-        box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
-      }
-      .info{
-       margin-bottom: 10%;
-       margin-top: 10%;
-      }
-      .character-button{
-        background-color: $navbarColor;
+     // Home Page Filter Section End
+
+
+      // Home Page Card List Section Start
+      .card-section {
+        margin-top: 1rem;
+        flex-wrap: wrap;
+        display: flex;
         width: 100%;
-        height: 100%;
-        color: white;
-        font-size: 1.2rem;
-        border: none;
-        border-radius: 6px;
-        cursor: pointer;
-        padding-left: 2%;
-        padding-right: 2%;
-        &:hover{
-          color: $textColor;
-          transition: 0.5s ease-in-out all;
+        justify-content: center;
+        align-items: center;
+        padding: 2rem;
+        .character-card {
+          width: 20%;
+          margin-right: 2%;
+          margin-bottom: 2%;
+          padding: 20px;
+          display: flex;
+          flex-direction: column;
+          align-items: center;
+          border: 1px solid transparent;
+          box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+          border-radius: 20px;
+          transition: 0.3s ease-in-out all;
+          img{
+            border-radius: 50%;
+            box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
+            
+          }
+          &:hover{
+            
+            border: 1px solid $navbarColor;
+            border-radius: 20px;
+            box-shadow: rgb(38, 57, 77) 0px 20px 30px -10px;
+          }
+          .info{
+          margin-bottom: 10%;
+          margin-top: 10%;
+          }
+          .character-button{
+            background-color: $navbarColor;
+            width: 100%;
+            height: 100%;
+            color: white;
+            font-size: 1.2rem;
+            border: none;
+            border-radius: 6px;
+            cursor: pointer;
+            padding-left: 2%;
+            padding-right: 2%;
+            &:hover{
+              color: $textColor;
+              transition: 0.5s ease-in-out all;
+            }
+          }
         }
       }
+      // Home Page Card List Section END
     }
+    
   }
+  
   // Caracter Detail Page 
   .selected-character{
     
