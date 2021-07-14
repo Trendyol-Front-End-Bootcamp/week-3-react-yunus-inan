@@ -1,20 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { useState } from "react";
 import { getSearchCharacter } from '../Utils/Fetch'
-const Search = ({ getSearchResults, page }) => {
-  //Filter State Elements
-  const [status, setStatus] = useState("alive");
-  const [gender, setGender] = useState("female");
+const Search = ({ getSearchResults, page, setPage }) => {
 
+  //Buradaki pagination için yazdığım kodları okumamanızı öneriyorum. Sağlığa zararlı olabilir :D 
+
+
+  //Filter State Elements
+  const [status, setStatus] = useState("");
+  const [gender, setGender] = useState("");
+
+
+  async function fetch() {
+    const data = await getSearchCharacter(page, status, gender);
+    getSearchResults(data);
+  }
   // We fetch according to the data returned from selectable inputs
   async function handleSubmit(e) {
     e.preventDefault();
-    const data = await getSearchCharacter(page, status, gender);
-    getSearchResults(data);
-
-
+    setPage("1");
+    fetch();
   };
 
+  //fetch for the new page every time the page changes
+  useEffect(() => {
+
+
+    fetch();
+  }, [page]);
   return (
     <form className="search-form">
 
