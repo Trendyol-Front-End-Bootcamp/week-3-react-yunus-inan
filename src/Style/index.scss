@@ -111,7 +111,7 @@ body {
         align-items: center;
         padding: 2rem;
         .character-card {
-          width: 20%;
+          
           margin-right: 2%;
           margin-bottom: 2%;
           padding: 20px;
@@ -194,16 +194,19 @@ body {
       padding: 1%;
 
       .image-container{
+       
         overflow:hidden;
         border-radius: 12px;
         border: 1px solid transparent;
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
         &:hover{
           box-shadow: 0px 0px 0px 3px rgba(34,162,189,1);
         }
         img{
-          display: block;
-          height: 100%;
           
+          margin: 0 auto;
           transition: transform 0.5s;
           
         }
