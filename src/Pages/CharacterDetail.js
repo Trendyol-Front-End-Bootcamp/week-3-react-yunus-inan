@@ -3,7 +3,7 @@ import { useParams } from "react-router";
 import { getSelectedCharacter } from '../Utils/Fetch'
 import { Link } from "react-router-dom";
 import { IoChevronBackCircle } from "react-icons/io5"
-
+import axios from "axios";
 const CharacterDetail = () => {
 
     const { id } = useParams();
@@ -18,7 +18,34 @@ const CharacterDetail = () => {
         location: { name: "" },
         episode: [],
     });
+    const [episodes, setEpisodes] = useState([]);
 
+
+    useEffect(() => {
+
+        function getEpisodesByIds(ids) {
+            axios
+                .get("https://rickandmortyapi.com/api/episode/" + ids)
+                .then((response) => {
+                    if (response.data !== null && !Array.isArray(response.data)) {
+                        setEpisodes([response.data]);
+                    } else {
+                        setEpisodes(response.data);
+                    }
+                })
+                .catch((error) => {
+                    console.log(error);
+                    setEpisodes([]);
+                });
+        }
+        if (character.episode !== undefined) {
+            let episodes = character.episode.slice(0, 5).map(function (v) {
+                return v.split("/").pop();
+            });
+
+            getEpisodesByIds(episodes.join(","));
+        }
+    }, [character]);
 
 
 
@@ -26,7 +53,6 @@ const CharacterDetail = () => {
         // Information of the selected character
         async function getSelectChar(id) {
             const data = await getSelectedCharacter(id);
-            console.log(data);
             setCharacter(data);
         };
         getSelectChar(id);
@@ -34,17 +60,16 @@ const CharacterDetail = () => {
 
     return (
         <div className="selected-character">
-
-            <div className="back-link" >
+            <div className="go-back-button" >
                 <Link to="/" >
                     <IoChevronBackCircle size={50} className="icon" />
                 </Link>
             </div>
-            <div className="character-container">
-                <div className="img-container">
+            <div className="character-details">
+                <div className="image-container">
                     <img src={character.image} alt={character.name} />
                 </div>
-                <div className="info">
+                <div className="main-detail">
                     <ul className="detail-list">
                         <li>
                             <strong>Species:</strong> {character.species}
@@ -63,13 +88,15 @@ const CharacterDetail = () => {
                         </li>
                         <li>
 
-                            <strong>Episodes:</strong>
-                            <ul className="episode-container">{character.episode.slice(0, 5).map((element, index) => {
-                                return (
-                                    // I get the point I need from episode info with substr
-                                    <li key={index} className="episodes-list">{element.substring(40, 42).replace("/", "-")}</li>
-                                )
-                            })}
+                            <strong>Episodes : </strong>
+
+                            <ul className="episode-container">
+                                {episodes.slice(0, 5).map((episode, index) => (
+                                    <li key={index} className="episodes-list">
+                                        {index + 1}: {episode.name}
+                                    </li>
+                                ))}
+
                             </ul>
 
                         </li>
