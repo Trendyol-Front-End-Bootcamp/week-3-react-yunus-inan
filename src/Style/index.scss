@@ -33,25 +33,43 @@ body {
     flex-direction: column;
     // Pagination Buttons Style Start 
       .pagination-buttons{
+        display: flex;
+        align-items: center;
         align-self: flex-end;
         padding-right: 10%;
           button{
             height: 50px;
-            width: 50px;
-            margin-left: 10px;
+            width: 100px;
+            
             background-color: $navbarColor;
             color: white;
             font-size: 1.3rem;
             border: 1px solid white;
             
-            &:focus,&:visited{
-            box-shadow: 0px 0px 0px 2px rgba(34,162,189,1);
-            background-color: $textColor;
-            }
+           
             &:hover{
               background-color: $textColor;
             }
             
+          }
+          span{
+            
+            height: 50px;
+            width: 100px;
+            margin: 0 10px;
+            font-size: 1.1rem;
+            background-color: $textColor;
+            color: $navbarColor;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+          }
+          .pointer-none-button{
+            cursor: no-drop;
+            opacity: 0.5;
+            &:hover{
+              background-color: $navbarColor;
+            }
           }
         }
       // Pagination Buttons Style End
