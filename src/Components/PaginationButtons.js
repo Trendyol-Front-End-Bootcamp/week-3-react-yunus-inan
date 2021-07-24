@@ -1,13 +1,48 @@
 import React from 'react'
 
-const PaginationButtons = ({ setPage }) => {
+const PaginationButtons = ({ page, setPage, paginationNext }) => {
+    const pagePlusCounter = () => {
+        if (paginationNext.pages === page) {
+            try {
+                page(paginationNext.pages);
+            } catch {
+                alert("Maksimum sayfaya ulaştın");
+            }
+
+        } else {
+            setPage(page + 1);
+        }
+
+    }
+    const pageNegativeCounter = () => {
+        if (paginationNext.pages === 0) {
+            try {
+                page(paginationNext.pages);
+            } catch {
+                alert("Sayfalama daha geriye gidemez");
+            }
+
+        } else {
+            setPage(page - 1);
+        }
+
+    }
     return (
         <div className="pagination-buttons">
-            <button value="1" onClick={(e) => setPage(e.target.value)}>1</button>
-            <button value="2" onClick={(e) => setPage(e.target.value)}>2</button>
-            <button value="3" onClick={(e) => setPage(e.target.value)}>3</button>
-            <button value="4" onClick={(e) => setPage(e.target.value)}>4</button>
-            <button value="5" onClick={(e) => setPage(e.target.value)}>5</button>
+            {!paginationNext.prev ?
+                <button className="pointer-none-button"> Prev </button>
+                :
+                <button onClick={pageNegativeCounter}> Prev </button>}
+
+
+            <span>{page} / {paginationNext.pages} </span>
+
+
+
+            {!paginationNext.next ?
+                <button className="pointer-none-button"> Next </button>
+                :
+                <button onClick={pagePlusCounter}> Next </button>}
         </div>
     )
 }

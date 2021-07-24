@@ -17,15 +17,14 @@ const Search = ({ getSearchResults, page, setPage }) => {
   // We fetch according to the data returned from selectable inputs
   async function handleSubmit(e) {
     e.preventDefault();
-    setPage("1");
+    setPage(1);
     fetch();
   };
 
   //fetch for the new page every time the page changes
   useEffect(() => {
-
-
     fetch();
+
   }, [page]);
   return (
     <form className="search-form">

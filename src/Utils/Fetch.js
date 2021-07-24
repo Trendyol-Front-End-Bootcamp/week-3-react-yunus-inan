@@ -7,7 +7,7 @@ import axios from "axios";
 export const getCharacter = async (page) => {
     const data = axios.get(`https://rickandmortyapi.com/api/character/?page=${page}`)
         .then((response) => {
-            return response.data.results;
+            return response.data;
         })
     return data;
 
@@ -17,7 +17,7 @@ export const getCharacter = async (page) => {
 export const getSearchCharacter = async (page, status, gender) => {
     const data = axios.get(`https://rickandmortyapi.com/api/character/?page=${page}&status=${status}&gender=${gender}`)
         .then((response) => {
-            return response.data.results;
+            return response.data;
         })
     return data;
 
